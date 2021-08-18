@@ -601,23 +601,73 @@
   console.log(solution(str));
 })();
 
-//2-1 큰 수 출력하기
-(() => {})();
+//3-2 유효한 펠린드롬
+(() => {
+  function solution(s) {
+    let answer = 'YES';
+    s = s.toLowerCase().replace(/[^a-z]/g, '');
+    if (s.split('').reverse().join('') !== s) return 'NO';
+    return answer;
+  }
 
-//2-1 큰 수 출력하기
-(() => {})();
+  let str = 'found7, time: study; Yduts; emit, 7Dnuof';
+  console.log(solution(str));
+})();
+(() => {
+  function solution(s) {
+    let answer = 'YES';
+    let tmp = '';
+    for (const x of s) {
+      if (
+        (x.charCodeAt() >= 97 && x.charCodeAt() <= 122) ||
+        (x.charCodeAt() >= 65 && x.charCodeAt() <= 90)
+      )
+        tmp += x;
+    }
+    tmp = tmp.toUpperCase();
+    let n = tmp.length;
+    let mid = Math.floor(n / 2);
+    for (let i = 0; i < mid; i++) {
+      if (tmp[i] !== tmp[n - 1 - i]) return 'no';
+    }
+    return answer;
+  }
 
-//2-1 큰 수 출력하기
-(() => {})();
+  let str = 'found7, time: study; Yduts; emit, 7Dnuof';
+  console.log(solution(str));
+})();
+(() => {
+  function solution(s) {
+    let answer = 'YES';
+    s = s.toLowerCase().replace(/[^a-z]/g, '');
+    console.log(s);
+    if (s !== s.split('').reverse().join('')) return 'no';
+    return answer;
+  }
 
-//2-1 큰 수 출력하기
-(() => {})();
+  let str = 'found7, time: study; Yduts; emit, 7Dnuof';
+  console.log(solution(str));
+})();
 
-//2-1 큰 수 출력하기
+//3-2 유효한 펠린드롬
 (() => {})();
-
-//2-1 큰 수 출력하기
+//3-2 유효한 펠린드롬
 (() => {})();
-
-//2-1 큰 수 출력하기
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
+(() => {})();
+//3-2 유효한 펠린드롬
 (() => {})();
