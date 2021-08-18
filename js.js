@@ -840,8 +840,73 @@
   let arr = [128, 460, 603, 40, 521, 137, 123];
   console.log(solution(7, arr));
 })();
-//4-1 자릿수합
-(() => {})();
+//4-2 뒤집은 소수
+(() => {
+  function isPrime(num) {
+    if (num === 1) return false;
+    for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+  function solution(arr) {
+    let answer = [];
+    for (let x of arr) {
+      let res = 0;
+      while (x) {
+        let t = x % 10;
+        res = res * 10 + t;
+        x = parseInt(x / 10);
+      }
+      if (isPrime(res)) answer.push(res);
+    }
+    return answer;
+  }
+
+  let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+  console.log(solution(arr));
+})();
+(() => {
+  function isPrime(num) {
+    if (num === 1) return false;
+    for (let i = 2; i < Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+  function solution(arr) {
+    let answer = [];
+    for (let x of arr) {
+      let result = 0;
+      while (x) {
+        let remainder = x % 10;
+        result = 10 * result + remainder;
+        x = parseInt(x / 10, 10);
+      }
+      if (isPrime(result)) answer.push(result);
+    }
+    return answer;
+  }
+
+  let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+  console.log(solution(arr));
+})();
+(() => {
+  function solution(arr) {
+    let answer = [];
+    arr.forEach((v, i) => {
+      v = Number(String(v).split('').reverse().join(''));
+      if (
+        [2, 3, 5, 7].includes(v) ||
+        (v !== 1 && v % 2 !== 0 && v % 3 !== 0 && v % 5 !== 0 && v % 7 !== 0)
+      )
+        answer.push(v);
+    });
+    return answer;
+  }
+  let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+  console.log(solution(arr));
+})();
 //4-1 자릿수합
 (() => {})();
 //4-1 자릿수합
