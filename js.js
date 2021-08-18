@@ -747,8 +747,45 @@
   let str = 'teachermode';
   console.log(solution(str, 'e'));
 })();
-//3-2 유효한 펠린드롬
-(() => {})();
+//3-3 문자열압축
+(() => {
+  function solution(s) {
+    let answer = '';
+    let cnt = 1;
+    s = s + ' ';
+    for (let i = 0; i < s.length - 1; i++) {
+      if (s[i] === s[i + 1]) cnt++;
+      else {
+        answer += s[i];
+        if (cnt > 1) answer += cnt;
+        cnt = 1;
+      }
+    }
+    return answer;
+  }
+
+  let str = 'KKHSSSSSSSE';
+  console.log(solution(str));
+})();
+(() => {
+  function solution(s) {
+    let answer = '';
+    let cnt = 1;
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] !== s[i + 1]) {
+        if (cnt === 1) answer += s[i];
+        else {
+          answer += s[i] + cnt;
+          cnt = 1;
+        }
+      } else cnt++;
+    }
+    return answer;
+  }
+
+  let str = 'KKHSSSSSSSE';
+  console.log(solution(str));
+})();
 //3-2 유효한 펠린드롬
 (() => {})();
 //3-2 유효한 펠린드롬
