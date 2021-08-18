@@ -786,19 +786,67 @@
   let str = 'KKHSSSSSSSE';
   console.log(solution(str));
 })();
-//3-2 유효한 펠린드롬
+
+// 44444444444444444444444444444444444444444
+// brute force
+
+//4-1 자릿수합
+(() => {
+  function solution(n, arr) {
+    let answer,
+      max = Number.MIN_SAFE_INTEGER;
+    for (let x of arr) {
+      let sum = 0,
+        tmp = x;
+      while (tmp) {
+        sum += tmp % 10;
+        tmp = Math.floor(tmp / 10);
+      }
+      if (sum > max) {
+        max = sum;
+        answer = x;
+      } else if (sum === max) {
+        if (x > answer) answer = x;
+      }
+    }
+    return answer;
+  }
+
+  let arr = [128, 460, 603, 40, 521, 137, 123];
+  console.log(solution(7, arr));
+})();
+(() => {
+  function solution(n, arr) {
+    let answer;
+    let sum = 0;
+    let max = Number.MIN_SAFE_INTEGER;
+    arr.forEach((v) => {
+      let q = v;
+      while (q) {
+        sum += q % 10;
+        q = parseInt(q / 10, 10);
+      }
+      if (sum > max) {
+        max = sum;
+        answer = v;
+      } else if (sum === max) {
+        if (v > answer) answer = v;
+      }
+      sum = 0;
+    });
+    return answer;
+  }
+
+  let arr = [128, 460, 603, 40, 521, 137, 123];
+  console.log(solution(7, arr));
+})();
+//4-1 자릿수합
 (() => {})();
-//3-2 유효한 펠린드롬
+//4-1 자릿수합
 (() => {})();
-//3-2 유효한 펠린드롬
+//4-1 자릿수합
 (() => {})();
-//3-2 유효한 펠린드롬
+//4-1 자릿수합
 (() => {})();
-//3-2 유효한 펠린드롬
-(() => {})();
-//3-2 유효한 펠린드롬
-(() => {})();
-//3-2 유효한 펠린드롬
-(() => {})();
-//3-2 유효한 펠린드롬
+//4-1 자릿수합
 (() => {})();
