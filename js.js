@@ -286,11 +286,74 @@
   console.log(solution(a, b));
 })();
 
-//2-1 큰 수 출력하기
-(() => {})();
+//2-4 점수계산
+(() => {
+  function solution(arr) {
+    let answer = 0,
+      cnt = 0;
+    for (let x of arr) {
+      if (x === 1) {
+        cnt++;
+        answer += cnt;
+      } else cnt = 0;
+    }
 
-//2-1 큰 수 출력하기
-(() => {})();
+    return answer;
+  }
+
+  let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+  console.log(solution(arr));
+})();
+(() => {
+  function solution(arr) {
+    let answer = (cnt = 0);
+    arr.forEach((v) => {
+      if (v) {
+        cnt++;
+        answer += cnt;
+      } else cnt = 0;
+    });
+    return answer;
+  }
+
+  let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+  console.log(solution(arr));
+})();
+
+//2-5 등수구하기
+(() => {
+  function solution(arr) {
+    let n = arr.length;
+    let answer = Array.from({ length: n }, () => 1);
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        if (arr[j] > arr[i]) answer[i]++;
+      }
+    }
+    return answer;
+  }
+
+  let arr = [87, 89, 92, 100, 76];
+  console.log(solution(arr));
+})();
+(() => {
+  function solution(arr) {
+    let n = arr.length;
+    let answer = Array(n)
+      .fill()
+      .map(() => n);
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        // if (i === j) continue;
+        if (arr[j] > arr[i]) answer[j]--;
+      }
+    }
+    return answer;
+  }
+
+  let arr = [87, 89, 92, 100, 76];
+  console.log(solution(arr));
+})();
 
 //2-1 큰 수 출력하기
 (() => {})();
