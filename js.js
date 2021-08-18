@@ -215,8 +215,39 @@
   console.log(solution(arr));
 })();
 
-//2-1 큰 수 출력하기
-(() => {})();
+//2-2 보이는학생
+(() => {
+  function solution(arr) {
+    let answer = 1,
+      max = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] > max) {
+        answer++;
+        max = arr[i];
+      }
+    }
+    return answer;
+  }
+
+  let arr = [130, 135, 148, 140, 145, 150, 150, 153];
+  console.log(solution(arr));
+})();
+(() => {
+  function solution(arr) {
+    let answer = 1;
+    let max = arr[0];
+    arr.forEach((v) => {
+      if (v > max) {
+        max = v;
+        answer++;
+      }
+    });
+    return answer;
+  }
+
+  let arr = [130, 135, 148, 140, 145, 150, 150, 153];
+  console.log(solution(arr));
+})();
 
 //2-1 큰 수 출력하기
 (() => {})();
