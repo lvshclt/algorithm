@@ -907,8 +907,99 @@
   let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
   console.log(solution(arr));
 })();
-//4-1 자릿수합
-(() => {})();
+//4-3 멘토링
+(() => {
+  function solution(test) {
+    let answer = 0;
+    tests = test.length; // 시험수
+    students = test[0].length; //학생수
+    for (let i = 1; i <= students; i++) {
+      for (let j = 1; j <= students; j++) {
+        let cnt = 0;
+        for (let k = 0; k < tests; k++) {
+          let pi = (pj = 0);
+          for (let s = 0; s < students; s++) {
+            if (test[k][s] === i) pi = s;
+            if (test[k][s] === j) pj = s;
+          }
+          if (pi < pj) cnt++;
+        }
+        if (cnt === tests) answer++;
+      }
+    }
+    return answer;
+  }
+
+  let arr = [
+    [3, 4, 1, 2],
+    [4, 3, 2, 1],
+    [3, 1, 4, 2],
+  ];
+  console.log(solution(arr));
+})();
+(() => {
+  function solution(test) {
+    let answer = 0;
+    let students = arr[0].length;
+    let games = arr.length;
+    for (let i = 1; i <= students; i++) {
+      for (let j = 1; j <= students; j++) {
+        if (i === j) continue;
+        let flag = 1;
+        for (let k = 0; k < games; k++) {
+          if (arr[k].indexOf(i) < arr[k].indexOf(j)) {
+            flag = 0;
+            break;
+          }
+        }
+        if (flag) answer++;
+      }
+    }
+    return answer;
+  }
+
+  let arr = [
+    [3, 4, 1, 2],
+    [4, 3, 2, 1],
+    [3, 1, 4, 2],
+  ];
+  console.log(solution(arr));
+})();
+
+(() => {
+  function solution(test) {
+    let answer = 0;
+    let students = arr[0].length;
+    let games = arr.length;
+    for (let i = 1; i <= students; i++) {
+      //mentor
+      for (let j = 1; j <= students; j++) {
+        //mentee
+        let rec = 0;
+        for (let k = 0; k < games; k++) {
+          //game-stage
+          let torRank = (teeRank = 0);
+          for (let l = 0; l < students; l++) {
+            //finding students' rank
+            if (arr[k][l] === i) torRank = l;
+            if (arr[k][l] === j) teeRank = l;
+          }
+          if (torRank < teeRank) rec++;
+        }
+        if (rec === games) answer++;
+      }
+    }
+    return answer;
+  }
+
+  let arr = [
+    [3, 4, 1, 2],
+    [4, 3, 2, 1],
+    [3, 1, 4, 2],
+  ];
+  console.log(solution(arr));
+})();
+
 //4-1 자릿수합
 (() => {})();
 //4-1 자릿수합
