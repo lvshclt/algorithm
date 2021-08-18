@@ -649,10 +649,104 @@
   console.log(solution(str));
 })();
 
-//3-2 유효한 펠린드롬
-(() => {})();
-//3-2 유효한 펠린드롬
-(() => {})();
+//3-3 숫자만 추출
+(() => {
+  function solution(str) {
+    let answer = '';
+    for (let x of str) {
+      if (!isNaN(x)) answer += x;
+    }
+    return parseInt(answer);
+  }
+
+  let str = 'g0en2T0s8eSoft';
+  console.log(solution(str));
+})();
+(() => {
+  function solution(str) {
+    return Number(str.toLowerCase().replace(/[a-z]/g, ''));
+  }
+
+  let str = 'g0en2T0s8eSoft';
+  console.log(solution(str));
+})();
+//3-3 가장짧은 문자거리
+(() => {
+  function solution(s, t) {
+    let answer = [];
+    let p = 1000;
+    for (let x of s) {
+      if (x === t) {
+        p = 0;
+        answer.push(p);
+      } else {
+        p++;
+        answer.push(p);
+      }
+    }
+    p = 1000;
+    for (let i = s.length - 1; i >= 0; i--) {
+      if (s[i] === t) p = 0;
+      else {
+        p++;
+        answer[i] = Math.min(answer[i], p);
+      }
+    }
+    return answer;
+  }
+
+  let str = 'teachermode';
+  console.log(solution(str, 'e'));
+})();
+(() => {
+  function solution(s, t) {
+    let answer = [];
+    let n = s.length;
+    let front = 0;
+    let back = 0;
+    let frontArr = [];
+    let backArr = [];
+    for (let i = 0; i < n; i++) {
+      if (s[i] !== t) front++;
+      else front = 0;
+      if (s[n - 1 - i] !== t) back++;
+      else back = 0;
+      frontArr.push(front);
+      backArr.unshift(back);
+    }
+    // console.log(frontArr);
+    // console.log(backArr);
+    for (let i = 0; i < n; i++) {
+      answer.push(Math.min(frontArr[i], backArr[i]));
+    }
+    return answer;
+  }
+
+  let str = 'teachermode';
+  console.log(solution(str, 'e'));
+})();
+(() => {
+  function solution(s, t) {
+    let answer = [];
+    let n = s.length;
+    let p = Number.MAX_SAFE_INTEGER;
+    for (const x of s) {
+      if (x !== t) p++;
+      else p = 0;
+      answer.push(p);
+    }
+    p = Number.MAX_SAFE_INTEGER;
+    for (let i = n - 1; i >= 0; i--) {
+      if (s[i] !== t) p++;
+      else p = 0;
+      answer[i] = Math.min(answer[i], p);
+    }
+    return answer;
+  }
+
+  let str = 'teachermode';
+  console.log(solution(str, 'e'));
+})();
 //3-2 유효한 펠린드롬
 (() => {})();
 //3-2 유효한 펠린드롬
