@@ -1,3 +1,5 @@
+//섹션 111111111111111111111111111111111111111
+
 //1-11 대문자 찾기
 (() => {
   function solution(s) {
@@ -188,6 +190,8 @@
   let str = ['good', 'time', 'good', 'time', 'student'];
   console.log(solution(str));
 })();
+
+//섹션 222222222222222222222222222222222222222222
 
 //2-1 큰 수 출력하기
 (() => {
@@ -525,7 +529,6 @@
   ];
   console.log(solution(arr));
 })();
-
 (() => {
   function solution(arr) {
     let answer = 0;
@@ -565,8 +568,38 @@
   console.log(solution(arr));
 })();
 
-//2-1 큰 수 출력하기
-(() => {})();
+//섹션 3333333333333333333333333333333
+
+//3-1 회문문자열
+(() => {
+  function solution(s) {
+    let answer = 'YES';
+    s = s.toLowerCase();
+    let len = s.length;
+    for (let i = 0; i < Math.floor(len / 2); i++) {
+      if (s[i] != s[len - i - 1]) return 'NO';
+    }
+    return answer;
+  }
+
+  let str = 'goooG';
+  console.log(solution(str));
+})();
+(() => {
+  function solution(s) {
+    let answer = 'yes';
+    let n = s.length;
+    let mid = Math.floor(n / 2);
+    s = s.toUpperCase();
+    for (let i = 0; i < mid; i++) {
+      if (s[i] !== s[n - 1 - i]) return 'NO!';
+    }
+    return answer;
+  }
+
+  let str = 'goooG';
+  console.log(solution(str));
+})();
 
 //2-1 큰 수 출력하기
 (() => {})();
