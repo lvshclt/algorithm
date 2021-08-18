@@ -188,5 +188,71 @@
   let str = ['good', 'time', 'good', 'time', 'student'];
   console.log(solution(str));
 })();
-//1-13 대소문자 변환
+
+//2-1 큰 수 출력하기
+(() => {
+  function solution(arr) {
+    let answer = [];
+    answer.push(arr[0]);
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] > arr[i - 1]) answer.push(arr[i]);
+    }
+    return answer;
+  }
+
+  let arr = [7, 3, 9, 5, 6, 12];
+  console.log(solution(arr));
+})();
+
+(() => {
+  function solution(arr) {
+    let answer = arr.filter((v, i, a) => arr[i] > arr[i - 1]);
+    answer.unshift(arr[0]);
+    return answer;
+  }
+
+  let arr = [7, 3, 9, 5, 6, 12];
+  console.log(solution(arr));
+})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
+(() => {})();
+
+//2-1 큰 수 출력하기
 (() => {})();
