@@ -14,7 +14,6 @@
   let str = 'KoreaTimeGood';
   console.log(solution(str));
 })();
-
 (() => {
   function solution(s) {
     let answer = 0;
@@ -47,7 +46,6 @@
   let str = 'ItisTimeToStudy';
   console.log(solution(str));
 })();
-
 (() => {
   function solution(s) {
     let answer = '';
@@ -87,6 +85,7 @@
 
   console.log(solution('StuDY'));
 })();
+
 //1-14 가장 긴 문자열
 (() => {
   function solution(s) {
@@ -118,7 +117,8 @@
   let str = ['teacher', 'time', 'student', 'beautiful', 'good'];
   console.log(solution(str));
 })();
-//1-14 가운데문자 출력
+
+//1-15 가운데문자 출력
 (() => {
   function solution(s) {
     let answer;
@@ -140,9 +140,53 @@
   }
   console.log(solution('study'));
 })();
-//1-13 대소문자 변환
-(() => {})();
-//1-13 대소문자 변환
-(() => {})();
+
+//1-16 중복문자제거
+(() => {
+  function solution(s) {
+    let answer = '';
+    //console.log(s.indexOf("K"));
+    for (let i = 0; i < s.length; i++) {
+      //console.log(s[i], i, s.indexOf(s[i]));
+      if (s.indexOf(s[i]) === i) answer += s[i];
+    }
+    return answer;
+  }
+  console.log(solution('ksekkset'));
+})();
+(() => {
+  function solution(s) {
+    let answer = '';
+    for (let i = 0; i < s.length; i++) {
+      if (s.indexOf(s[i]) === i) answer += s[i];
+    }
+    return answer;
+  }
+  console.log(solution('ksekkset'));
+})();
+//1-17 중복단어 제거
+(() => {
+  function solution(s) {
+    let answer;
+    //console.log(s.indexOf("time"));
+    answer = s.filter(function (v, i) {
+      return s.indexOf(v) === i;
+    });
+    return answer;
+  }
+  let str = ['good', 'time', 'good', 'time', 'student'];
+  console.log(solution(str));
+})();
+(() => {
+  function solution(s) {
+    let answer = [];
+    for (let i = 0; i < s.length; i++) {
+      if (s.indexOf(s[i]) === i) answer.push(s[i]);
+    }
+    return answer;
+  }
+  let str = ['good', 'time', 'good', 'time', 'student'];
+  console.log(solution(str));
+})();
 //1-13 대소문자 변환
 (() => {})();
