@@ -1232,8 +1232,51 @@
   let b = [2, 3, 6, 7, 9];
   console.log(solution(a, b));
 })();
-//5-1 두배열 합치기
-(() => {})();
+//5-2 공통원소구하기
+(() => {
+  function solution(arr1, arr2) {
+    let answer = [];
+    arr1.sort();
+    arr2.sort();
+    let p1 = (p2 = 0);
+    while (p1 < arr1.length && p2 < arr2.length) {
+      if (arr1[p1] == arr2[p2]) {
+        answer.push(arr1[p1++]);
+        p2++;
+      } else if (arr1[p1] < arr2[p2]) p1++;
+      else p2++;
+    }
+    return answer;
+  }
+
+  let a = [1, 3, 9, 5, 2];
+  let b = [3, 2, 5, 7, 8];
+  console.log(solution(a, b));
+})();
+(() => {
+  function solution(arr1, arr2) {
+    let answer = [];
+    arr1.sort((e, s) => e - s);
+    arr2.sort((e, s) => e - s);
+    let ap = (bp = 0);
+    while (ap < arr1.length && bp < arr2.length) {
+      if (arr1[ap] < arr2[bp]) {
+        ap++;
+      } else if (arr1[ap] > arr2[bp]) {
+        bp++;
+      } else if (arr1[ap] === arr2[bp]) {
+        answer.push(arr1[ap]);
+        ap++;
+        bp++;
+      }
+    }
+    return answer;
+  }
+
+  let a = [1, 3, 9, 5, 2];
+  let b = [3, 2, 5, 7, 8];
+  console.log(solution(a, b));
+})();
 //5-1 두배열 합치기
 (() => {})();
 //5-1 두배열 합치기
