@@ -1277,8 +1277,46 @@
   let b = [3, 2, 5, 7, 8];
   console.log(solution(a, b));
 })();
-//5-1 두배열 합치기
-(() => {})();
+//5-3 연속부분수열1
+(() => {
+  function solution(m, arr) {
+    let answer = 0,
+      lt = 0,
+      sum = 0;
+    for (let rt = 0; rt < arr.length; rt++) {
+      sum += arr[rt];
+      if (sum === m) answer++;
+      while (sum >= m) {
+        sum -= arr[lt++];
+        if (sum === m) answer++;
+      }
+    }
+    return answer;
+  }
+
+  let a = [1, 2, 1, 3, 1, 1, 1, 2];
+  console.log(solution(6, a));
+})();
+(() => {
+  function solution(m, arr) {
+    let answer = 0;
+    let lt = 0;
+    let sum = 0;
+    for (let rt = 0; rt < arr.length; rt++) {
+      sum += arr[rt];
+      if (sum === m) answer++;
+      while (sum >= m) {
+        sum -= arr[lt++];
+        if (sum === m) answer++;
+      }
+    }
+
+    return answer;
+  }
+
+  let a = [1, 2, 1, 3, 1, 1, 1, 2];
+  console.log(solution(6, a));
+})();
 //5-1 두배열 합치기
 (() => {})();
 //5-1 두배열 합치기
