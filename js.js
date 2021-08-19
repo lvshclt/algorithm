@@ -1000,8 +1000,116 @@
   console.log(solution(arr));
 })();
 
-//4-1 자릿수합
-(() => {})();
+//4-4 졸업선물
+(() => {
+  function solution(m, product) {
+    let answer = 0;
+    let n = product.length;
+    product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+    for (let i = 0; i < n; i++) {
+      let money = m - (product[i][0] / 2 + product[i][1]);
+      let cnt = 1;
+      for (let j = 0; j < n; j++) {
+        if (j !== i && product[j][0] + product[j][1] > money) break;
+        if (j !== i && product[j][0] + product[j][1] <= money) {
+          money -= product[j][0] + product[j][1];
+          cnt++;
+        }
+      }
+      answer = Math.max(answer, cnt);
+    }
+    return answer;
+  }
+
+  let arr = [
+    [6, 6],
+    [2, 2],
+    [4, 3],
+    [4, 5],
+    [10, 3],
+  ];
+  console.log(solution(28, arr));
+})();
+(() => {
+  function solution(m, product) {
+    let answer = 0;
+    let options = [];
+
+    for (let i = 0; i < product.length; i++) {
+      // 뭘 할인할지
+      let option = [];
+      let discounted = product[i][0] / 2 + product[i][1];
+      for (let j = 0; j < product.length; j++) {
+        //그때 애들가격
+        if (i === j) option.push(discounted);
+        else option.push(product[j][0] + product[j][1]);
+      }
+      option.sort((a, b) => a - b);
+      options.push(option);
+    }
+    console.log(options);
+    for (let k = 0; k < options.length; k++) {
+      //각 option마다 최대 몇명가능한지 구하자
+      let possible;
+      let sum = options[k][0];
+      for (let l = 1; l < options[0].length; l++) {
+        if (sum + options[k][l] > m) {
+          possible = l;
+        }
+        if (sum + options[k][l] === m) {
+          possible = l + 1;
+        }
+        if (sum + options[k][l] < m) {
+          sum += options[k][l];
+        }
+      }
+      answer = Math.max(answer, possible);
+    }
+    return answer;
+  }
+
+  let arr = [
+    [6, 6],
+    [2, 2],
+    [4, 3],
+    [4, 5],
+    [10, 3],
+  ];
+  console.log(solution(28, arr));
+})();
+(() => {
+  function solution(m, product) {
+    let answer = 0;
+    let n = product.length;
+    product.sort((e, s) => e[0] + e[1] - (s[0] + s[1]));
+    console.log(product);
+    for (let i = 0; i < n; i++) {
+      let budget = m - (product[i][0] / 2 + product[i][1]);
+      let cnt = 1;
+      for (let j = 0; j < n; j++) {
+        if (j === i) continue;
+
+        if (product[j][0] + product[j][1] > budget) break;
+        else {
+          cnt++;
+          budget -= product[j][0] + product[j][1];
+        }
+        answer = Math.max(answer, cnt);
+      }
+    }
+
+    return answer;
+  }
+
+  let arr = [
+    [6, 6],
+    [2, 2],
+    [4, 3],
+    [4, 5],
+    [10, 3],
+  ];
+  console.log(solution(28, arr));
+})();
 //4-1 자릿수합
 (() => {})();
 //4-1 자릿수합
