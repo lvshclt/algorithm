@@ -1300,27 +1300,70 @@
 (() => {
   function solution(m, arr) {
     let answer = 0;
-    let lt = 0;
-    let sum = 0;
+    let lt = (sum = 0);
+
     for (let rt = 0; rt < arr.length; rt++) {
+      //rt가 증가했다
       sum += arr[rt];
+      //어쨌든 더한다
       if (sum === m) answer++;
-      while (sum >= m) {
-        sum -= arr[lt++];
-        if (sum === m) answer++;
+      //더하자마자 충족시키면 바로 보고한다
+      if (sum >= m) {
+        //같거나 더 크다면, 감소시킨다
+        while (sum >= m) {
+          // 썸이 m보다 작을때까지 계속
+          sum -= arr[lt++];
+          // 감소시키고, lt는 임무를다했으니 건너간다.
+          if (sum === m) answer++;
+          //만약그랬을때 충족시키는 사례가나온다면 역시보고한다.
+        }
       }
     }
-
     return answer;
   }
 
   let a = [1, 2, 1, 3, 1, 1, 1, 2];
   console.log(solution(6, a));
 })();
-//5-1 두배열 합치기
-(() => {})();
-//5-1 두배열 합치기
-(() => {})();
+//5-4 연속부분수열2
+(() => {
+  function solution(m, arr) {
+    let answer = 0,
+      sum = 0,
+      lt = 0;
+    for (let rt = 0; rt < arr.length; rt++) {
+      sum += arr[rt];
+      while (sum > m) {
+        sum -= arr[lt++];
+      }
+      answer += rt - lt + 1;
+    }
+    return answer;
+  }
+
+  let a = [1, 3, 1, 2, 3];
+  console.log(solution(5, a));
+})();
+(() => {
+  function solution(m, arr) {
+    let answer = 0;
+    let lt = 0;
+    let sum = 0;
+    for (let rt = 0; rt < arr.length; rt++) {
+      sum += arr[rt];
+      while (sum > m) {
+        sum -= arr[lt];
+        lt++;
+      }
+      answer += rt - lt + 1;
+    }
+    return answer;
+  }
+
+  let a = [1, 3, 1, 2, 3];
+  console.log(solution(5, a));
+})();
+
 //5-1 두배열 합치기
 (() => {})();
 //5-1 두배열 합치기
