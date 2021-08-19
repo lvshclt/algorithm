@@ -1171,5 +1171,77 @@
   let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
   console.log(solution(10, 3, arr));
 })();
-//4-1 자릿수합
+
+//55555555555555555555555555555555555555555555555
+//효율성(투포인터 알고리즘, 슬라이딩윈도우, 해쉬)
+
+//5-1 두배열 합치기
+(() => {
+  function solution(arr1, arr2) {
+    let answer = [];
+    let n = arr1.length;
+    let m = arr2.length;
+    let p1 = (p2 = 0);
+    while (p1 < n && p2 < m) {
+      if (arr1[p1] <= arr2[p2]) answer.push(arr1[p1++]);
+      else answer.push(arr2[p2++]);
+    }
+    while (p1 < n) answer.push(arr1[p1++]);
+    while (p2 < m) answer.push(arr2[p2++]);
+    return answer;
+  }
+
+  let a = [1, 3, 5];
+  let b = [2, 3, 6, 7, 9];
+  console.log(solution(a, b));
+})();
+(() => {
+  function solution(arr1, arr2) {
+    let answer = [];
+    let ap = (bp = 0);
+    while (![arr1[ap], arr2[bp]].includes(undefined)) {
+      if (arr1[ap] < arr2[bp]) answer.push(arr1[ap++]);
+      else answer.push(arr2[bp++]);
+    }
+    if (!arr1[ap]) answer.push(...arr2.splice(bp, arr2.length));
+    else if (!arr2[bp]) answer.push(...arr1.splice(ap, arr1.length));
+    return answer;
+  }
+
+  let a = [1, 3, 5];
+  let b = [2, 3, 6, 7, 9];
+  console.log(solution(a, b));
+})();
+(() => {
+  function solution(arr1, arr2) {
+    let answer = [];
+    let ap = (bp = 0);
+    let n = arr1.length;
+    let m = arr2.length;
+    while (ap < n && bp < m) {
+      if (arr1[ap] < arr2[bp]) answer.push(arr1[ap++]);
+      else answer.push(arr2[bp++]);
+    }
+    while (bp < m) answer.push(arr2[bp++]);
+    while (ap < n) answer.push(arr1[ap++]);
+    return answer;
+  }
+
+  let a = [1, 3, 5];
+  let b = [2, 3, 6, 7, 9];
+  console.log(solution(a, b));
+})();
+//5-1 두배열 합치기
+(() => {})();
+//5-1 두배열 합치기
+(() => {})();
+//5-1 두배열 합치기
+(() => {})();
+//5-1 두배열 합치기
+(() => {})();
+//5-1 두배열 합치기
+(() => {})();
+//5-1 두배열 합치기
+(() => {})();
+//5-1 두배열 합치기
 (() => {})();
