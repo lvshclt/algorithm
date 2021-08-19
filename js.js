@@ -1110,7 +1110,66 @@
   ];
   console.log(solution(28, arr));
 })();
-//4-1 자릿수합
-(() => {})();
+//4-5 K번째 큰수
+(() => {
+  function solution(n, k, card) {
+    let answer;
+    let tmp = new Set();
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        for (let k = j + 1; k < n; k++) {
+          tmp.add(card[i] + card[j] + card[k]);
+        }
+      }
+    }
+    let a = Array.from(tmp).sort((a, b) => b - a);
+    answer = a[k - 1];
+    return answer;
+  }
+
+  let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+  console.log(solution(10, 3, arr));
+})();
+(() => {
+  function solution(n, k, card) {
+    let answer;
+    let arr = [];
+    for (let i = 0; i < n - 2; i++) {
+      for (let j = i + 1; j < n - 1; j++) {
+        for (let k = j + 1; k < n; k++) {
+          arr.push(card[i] + card[j] + card[k]);
+        }
+      }
+    }
+    arr.sort((e, s) => s - e);
+    console.log(arr);
+    let single = new Set(arr);
+    answer = Array.from(single)[k - 1];
+    return answer;
+  }
+
+  let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+  console.log(solution(10, 3, arr));
+})();
+(() => {
+  function solution(n, k, card) {
+    let answer;
+    let single = new Set();
+    let arr = [];
+    for (let i = 0; i < n - 2; i++) {
+      for (let j = i + 1; j < n - 1; j++) {
+        for (let k = j + 1; k < n; k++) {
+          single.add(card[i] + card[j] + card[k]);
+        }
+      }
+    }
+    answer = Array.from(single).sort((e, s) => s - e)[k - 1];
+    console.log(single.size);
+    return answer;
+  }
+
+  let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+  console.log(solution(10, 3, arr));
+})();
 //4-1 자릿수합
 (() => {})();
